@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم هُدى الرقمي | الخدمات البرمجية والأكاديمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #f5f3ef;
+            --bg-card: #fdfcf9;
+            --bg-subtle: #eae6df;
+            --accent-dark: #3f4e65;
+            --accent-hover: #2d384a;
+            --text-dark: #2c2a29;
+            --text-muted: #6e6a66;
+            --border-color: #e5e0d8;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--bg-main);
+            color: var(--text-dark);
+            padding: 1.2rem 5% 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+        }
+        nav {
+            background: var(--bg-card);
+            padding: 8px 25px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent-dark);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 6rem 5% 5rem;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #f0f0f0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-whatsapp-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--accent-dark);
+            color: #ffffff !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+        .btn-whatsapp:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .hero .btn-whatsapp {
+            background-color: #25d366;
+            border: 2px solid #ffffff;
+            color: #ffffff !important;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+        }
+        .hero .btn-whatsapp:hover {
+            background-color: #1eb857;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+        .global-payment-notice {
+            background-color: var(--bg-card);
+            border: 1px dashed var(--accent-dark);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 i {
+            color: var(--accent-dark);
+        }
+        .card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .card ul li {
+            padding: 6px 0;
+            position: relative;
+            padding-right: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .card ul li::before {
+            content: '✦';
+            position: absolute;
+            right: 0;
+            color: var(--accent-dark);
+            font-size: 0.8rem;
+        }
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+        .card-btn {
+            background: var(--bg-subtle);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s, color 0.3s;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+        .card-btn:hover {
+            background: var(--accent-dark);
+            color: #ffffff;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+        .faq-item h4 {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        footer {
+            background: var(--bg-subtle);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        @media(max-width: 768px) {
+            nav { 
+                flex-wrap: wrap; 
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-sparkles" style="color: var(--accent-dark);"></i> عالم هُدى الرقمي
+        </div>
+        <nav>
+            <a href="#packages">البكجات</a>
+            <a href="#services">الخدمات</a>
+            <a href="#projects">مشاريعنا</a>
+            <a href="#faq">الأسئلة الشائعة</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>حلول برمجية وأكاديمية متكاملة</h1>
+        <p>نقدم خدمات هندسة البرمجيات، مشاريع التخرج، التدريب التعاوني، برمجة المواقع، وتطبيقات الذكاء الاصطناعي بأعلى معايير الإتقان والجودة.</p>
+        <div class="btn-whatsapp-wrapper">
+            <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> اطلب خدمتك عبر واتساب
+            </a>
+        </div>
+    </section>
+
+    <!-- قسم البكجات -->
+    <div class="container" id="packages">
+        <h2 class="section-title">البكجات الأكاديمية والبرمجية</h2>
+        <div class="global-payment-notice">
+            <i class="fa-solid fa-credit-card"></i> متاح الدفع لكافة البكجات على فترات ميسرة خلال الترم الدراسي!
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-graduation-cap"></i> مشاريع التخرج </h3>
+                    <ul>
+                        <li>بناء وبرمجة التطبيق بالكامل</li>
+                        <li>إعداد التقارير والتوثيق الشامل</li>
+                        <li>تصميم العروض التقديمية</li>
+                        <li>جلسة شرح وتدريب كاملة على المشروع</li>
+                        <li>تثبيت الأكواد وتشغيل الموقع على جهازك</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب البكج
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-briefcase"></i> مشاريع التدريب التعاوني</h3>
+                    <ul>
+                        <li>إعداد التقارير الشهرية والتقرير النهائي</li>
+                        <li>برمجة النظام المطلوب بالكامل</li>
+                        <li>تصميم العروض التقديمية للتدريب</li>
+                        <li>تثبيت المشروع وشرح تفاصيله</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب البكج
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-book-open"></i> مشاريع تخرج بدون برمجة</h3>
+                    <ul>
+                        <li>مخصصة لبقية الكليات النظرية والإنسانية</li>
+                        <li>إعداد التقارير الشهرية والنهائية بدقة</li>
+                        <li>تصميم عروض بوربوينت احترافية</li>
+                        <li>توثيق كامل للبحث أو المشروع</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب البكج
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الخدمات المستقلة -->
+    <div class="container" id="services" style="background-color: var(--bg-subtle); border-radius: 20px;">
+        <h2 class="section-title">الخدمات الفردية والمتنوعة</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-robot"></i> جلسات شرح وتدريب  </h3>
+                    <ul>
+                        <li>تعلم كيفية استخدام AI لتصميم المشاريع البرمجية</li>
+                        <li>جلسات تدريبية متخصصة في تحليل البيانات عبر Kaggle</li>
+                        <li>تعلم مهارات الأوفيس (وورد، إكسل، بوربوينت)</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> احجز الجلسة
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-laptop-code"></i> الخدمات البرمجية المتنوعة</h3>
+                    <ul>
+                        <li>برمجة المواقع وتحليل البيانات</li>
+                        <li>مشاريع المواد الدراسية</li>
+                        <li>رسم المخططات الهندسية</li>
+                        <li>حل الواجبات</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الخدمة
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-folder-open"></i> مشاريع جامعية أخرى</h3>
+                    <ul>
+                        <li>إنجاز المشاريع الجامعية المتنوعة</li>
+                        <li>كتابة البحوث والتقارير وصياغتها</li>
+                        <li>تصميم واجهات المستخدم والتصاميم الإبداعية</li>
+                        <li>عروض بوربوينت أكاديمية مميزة</li>
+                    </ul>
+                </div>
+                <div class="btn-whatsapp-wrapper">
+                    <a href="https://wa.me/966538252405" class="btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الخدمة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم مشاريعنا -->
+    <div class="container" id="projects">
+        <h2 class="section-title">مشاريعنا</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <img src="./bus.png" alt="تتبع الحافلات" class="project-img">
+                    <h3><i class="fa-solid fa-bus"></i> نظام تتبع الحافلات المدرسية</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        نظام يخدم التعليم يتيح للأهل تتبع أطفالهم عبر تطبيق الويب، معرفة موقع الطفل وحالته، مسح باركود خاص لتسجيل الحضور ومتابعة خط السير حتى الوصول الآمن.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">اطلب مشروع مشابه</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="./ai.png" alt="ذكاء اصطناعي لتحليل الأعطال" class="project-img">
+                    <h3><i class="fa-solid fa-microchip"></i> نظام الذكاء الاصطناعي لتحليل أعطال الأجهزة</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        نظام ذكي يعتمد على رفع أو تصوير الأعطال ومشاكل الأجهزة، ليقوم الذكاء الاصطناعي بتحليل المشكلة بدقة واقتراح الحلول والخطوات اللازمة لإصلاحها فوراً.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">اطلب مشروع مشابه</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="./clinic.png" alt="العيادات الطبية" class="project-img">
+                    <h3><i class="fa-solid fa-hospital"></i> نظام مواعيد العيادات الطبية</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        موقع تدريب متكامل يخدم المستشفيات لحجز وتأكيد المواعيد الطبية للعيادات، مع إدارة بيانات المرضى والمواعيد بكفاءة عالية وسهولة تامة.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">اطلب مشروع مشابه</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="./library.png" alt="نظام إدارة مكتبة ذكي" class="project-img">
+                    <h3><i class="fa-solid fa-book"></i> نظام إدارة مكتبة ذكي (Smart Library)</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        تقرير مشروع تخرج متكامل يشمل الفصول الستة (من المقدمة، مراجعة الأدبيات، تحليل UML، التنفيذ والاختبار، النتائج، وحتى الخطة المستقبلية) لإدارة الأعضاء، الكتب، والإعارات.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">اطلب مشروع مشابه</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <img src="./wateco.png" alt="تطبيق وايتكو" class="project-img">
+                    <h3><i class="fa-solid fa-droplet"></i> تطبيق وايتكو (Wateco)</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        تطبيق متخصص في توصيل صهاريج المياه (وايت ماء) للمنازل والشركات في السعودية، مع ميزات طلب الكميات، الجدولة، التتبع المباشر للسائق، وخدمة الاشتراكات الدورية.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">اطلب مشروع مشابه</a>
+            </div>
+
+            <div class="card" style="justify-content: center; text-align: center; background: var(--bg-subtle);">
+                <div>
+                    <i class="fa-solid fa-folder-plus" style="font-size: 2.5rem; color: var(--accent-dark); margin-bottom: 1rem;"></i>
+                    <h3>وغيرها من المشاريع الأخرى</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        ننفذ مشاريع متنوعة ومخصصة لمختلف المجالات الأكاديمية والبرمجية حسب طلبك وفكرتك الخاصة.
+                    </p>
+                </div>
+                <a href="https://wa.me/966538252405" class="card-btn" target="_blank">تواصل معنا بفكرتك</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <div class="container" id="faq" style="background-color: var(--bg-subtle); border-radius: 20px; margin-bottom: 2rem;">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h4>كيف تعمل خدمة الأقساط لمشاريع التخرج والتدريب؟</h4>
+                <p>نقدم تسهيلات مالية عبر تقسيم تكلفة المشروع على دفعات ميسرة طوال فترة الترم الدراسي لتناسب ميزانيتك.</p>
+            </div>
+            <div class="faq-item">
+                <h4>كيف تتم مناقشة وضمان جودة مشروع التخرج؟</h4>
+                <p>نحرص على تسليم المشروع كاملاً مع التوثيق، بالإضافة إلى جلسة شرح وتدريب مكثفة تفهمك كافة تفاصيل المشروع لضمان جاهزيتك التامة للمناقشة.</p>
+            </div>
+            <div class="faq-item">
+                <h4>ما هي آلية الطلب والتواصل؟</h4>
+                <p>يمكنك الضغط مباشرة على زر الواتساب في الخدمة المطلوبة وسنتولى الرد عليك فوراً لتحديد المتطلبات وتفاصيل التنفيذ.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="color: var(--text-dark); font-weight: 700;">جميع الحقوق محفوظة © عالم هُدى الرقمي</p>
+        <p>مُنذ 2024</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">جاهزون لمساعدتك في إنجاز متطلباتك الدراسية بأعلى درجات الإتقان</p>
+    </footer>
+
+</body>
+</html>
